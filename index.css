@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ChatGPT-style layout: lock viewport and prevent body scroll */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(240, 10%, 3.9%);
+  --muted: hsl(210, 40%, 96%);
+  --muted-foreground: hsl(215, 16%, 47%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(240, 10%, 3.9%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(240, 10%, 3.9%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --primary: hsl(262, 83%, 70%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(210, 40%, 96%);
+  --secondary-foreground: hsl(222, 84%, 5%);
+  --accent: hsl(210, 40%, 96%);
+  --accent-foreground: hsl(222, 84%, 5%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(262, 83%, 70%);
+  --radius: 0.75rem;
+
+  /* Mantua specific colors */
+  --mantua-purple: hsl(262, 83%, 70%);
+  --dark-bg: hsl(0, 0%, 4%);
+  --dark-surface: hsl(0, 0%, 10%);
+  --dark-border: hsl(215, 14%, 34%);
+}
+
+.dark {
+  --background: hsl(0, 0%, 4%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(0, 0%, 10%);
+  --muted-foreground: hsl(240, 5%, 65%);
+  --popover: hsl(0, 0%, 4%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(0, 0%, 4%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(215, 14%, 34%);
+  --input: hsl(215, 14%, 34%);
+  --primary: hsl(262, 83%, 70%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(0, 0%, 10%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(0, 0%, 10%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62%, 30%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(262, 83%, 70%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent;
+  }
+  
+  .mantua-gradient {
+    @apply bg-gradient-to-br from-primary to-purple-600;
+  }
+}
+
+/* Connect Wallet Button Styling */
+.wallet-button-wrapper button,
+button[data-testid="ockConnectWallet_Container"] {
+  border: 1px solid #a855f7 !important;
+  background-color: transparent !important;
+  color: #a855f7 !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+}
+
+.wallet-button-wrapper button:hover,
+button[data-testid="ockConnectWallet_Container"]:hover {
+  background-color: transparent !important;
+  color: #c084fc !important;
+  border-color: #c084fc !important;
+}
+
+.wallet-button-wrapper button span,
+button[data-testid="ockConnectWallet_Container"] span {
+  color: #a855f7 !important;
+}
+
+.wallet-button-wrapper button:hover span,
+button[data-testid="ockConnectWallet_Container"]:hover span {
+  color: #c084fc !important;
+}
+
+.hover-lift {
+  @apply transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg;
+}
